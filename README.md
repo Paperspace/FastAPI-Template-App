@@ -46,10 +46,10 @@ resources:
 ```
 
 ## Develop locally
-- Clone repo to your workspace: `git clone https://github.com/gradient-ai/FastAPI-Template-App.git`
+- Clone the repo to your workspace: `git clone https://github.com/gradient-ai/FastAPI-Template-App.git`
 - Make updates to your application (e.g. application files, Dockerfile, requirements.txt)
 - Build a new image by running `docker build -t my-image:tag .`
-- Push build image to container registry of your choice `docker push my-image:tag`
+- Push image to the container registry of your choice by running `docker push my-image:tag`
 - Update the deployment spec in paperspace.yaml to the location of your new image
 - Deploy your application on Paperspace by running `pspace up`. Ensure you have the [Paperspace CLI](https://github.com/Paperspace/cli#installation) installed.
 
