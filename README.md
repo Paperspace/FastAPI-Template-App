@@ -51,10 +51,10 @@ resources:
 - Build a new image by running `docker build -t my-image:tag .`
 - Push build image to container registry of your choice `docker push my-image:tag`
 - Update the deployment spec in paperspace.yaml to the location of your new image
-- Deploy your application on Paperspace by running `pspace up`. Ensure you have the [Paperspace CLI](https://github.com/Paperspace/cli) installed.
+- Deploy your application on Paperspace by running `pspace up`. Ensure you have the [Paperspace CLI](https://github.com/Paperspace/cli#installation) installed.
 
 ## How to deploy
-- Download the [Paperspace CLI](https://github.com/Paperspace/cli)
+- Download the [Paperspace CLI](https://github.com/Paperspace/cli#installation)
 - run `pspace init -t https://github.com/gradient-ai/FastAPI-Template-App` to initialize you app. This will initialize the project locally and clone this GitHub repo as your project template.
 - run `pspace up` to deploy your app on Paperspace. This will send the spec in [paperspace.yaml)(paperspace.yaml) to Paperspace to spin up your application.
 
