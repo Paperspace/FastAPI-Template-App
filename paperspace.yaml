@@ -1,8 +1,12 @@
 apiVersion: v0alpha0
 enabled: true
+# The name of your project
 name: my-fastapi-app
+# You should replace this with a Docker image you build
 image: paperspace/fastapi-template-app:latest
 port: 80
+# Deploy safely by using health checks, preventing traffic from being 
+# routed to unhealthy instances
 healthChecks:
   startup:
     path: /
@@ -10,6 +14,9 @@ healthChecks:
     path: /
   liveness:
     path: /
+# The resources section defines the compute resources used by your service. 
+# You can specify a number of replicas, an instance type, and autoscaling 
+# settings here.
 resources:
   replicas: 1
   instanceType: A4000
