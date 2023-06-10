@@ -1,4 +1,4 @@
-apiVersion: latest
+apiVersion: v0alpha0
 enabled: true
 name: my-fastapi-app
 image: paperspace/fastapi-template-app:latest
