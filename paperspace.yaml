@@ -1,4 +1,5 @@
 apiVersion: v0alpha0
+# To disable the application change enabled: false
 enabled: true
 # The name of your project
 name: my-fastapi-app
