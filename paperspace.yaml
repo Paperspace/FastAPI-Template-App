@@ -4,8 +4,8 @@ enabled: true
 # The name of your project
 name: my-fastapi-app
 # You should replace this with a Docker image you build
-image: paperspace/fastapi-template-app:latest
-port: 80
+image: paperspace/fastapi-template-app:2023-06-14
+port: 8000
 # Deploy safely by using health checks, preventing traffic from being 
 # routed to unhealthy instances
 healthChecks:
@@ -31,3 +31,5 @@ resources:
       - metric: cpu
         summary: average
         value: 75
+
+
