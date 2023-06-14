@@ -1,13 +1,15 @@
-# FastAPI Template Paperspace App
+# Run a FastAPI app on Paperspace
 
 ## Intro
-This is a template FastAPI app that can be run on Paperspace. This repo is to be used as a reference for users who are looking to create their own FastAPI app on Paperspace.
 
-- The FastAPI app is located in `app/main.py`
+This is a template for users looking to deploy their own FastAPI app on Paperspace.
+
+- The [FastAPI](https://fastapi.tiangolo.com/lo/) app code is located in `app/main.py`
 - The Dockerfile is used to create an image which was pushed as a public image to [paperspace/fastapi-template-app:latest](https://hub.docker.com/repository/docker/paperspace/fastapi-template-app/general)
-- The above image can be deployed to Paperspace using the deployment spec located in `paperspace.yaml`
+- The above image can be deployed to Paperspace using the [app config](https://docs-next.paperspace.com/deploying/app-config) located at `paperspace.yaml`
 
 ## Project Structure
+
 ```
 ├── Dockerfile
 ├── requirements.txt
@@ -16,50 +18,25 @@ This is a template FastAPI app that can be run on Paperspace. This repo is to be
     ├── main.py
 ```
 
-[paperspace.yaml](paperspace.yaml):
-```
-apiVersion: latest
-enabled: true
-name: my-fastapi-app
-image: paperspace/fastapi-template-app:latest
-port: 80
-healthChecks:
-  startup:
-    path: /
-  readiness:
-    path: /
-  liveness:
-    path: /
-resources:
-  replicas: 1
-  instanceType: A4000
-  autoscaling:
-    enabled: true
-    maxReplicas: 2
-    metrics:
-      - metric: requestDuration
-        summary: average
-        value: 1.2
-      - metric: cpu
-        summary: average
-        value: 75
-```
-
 ## Develop locally
+
 - Clone the repo to your workspace: `git clone https://github.com/gradient-ai/FastAPI-Template-App.git`
 - Make updates to your application (e.g. application files, Dockerfile, requirements.txt)
 - Build a new image by running `docker build -t my-image:tag .`
 - Push image to the container registry of your choice by running `docker push my-image:tag`
-- Update the deployment spec in paperspace.yaml to the location of your new image
-- Deploy your application on Paperspace by running `pspace up`. Ensure you have the [Paperspace CLI](https://github.com/Paperspace/cli#installation) installed.
+- Update the app config at `paperspace.yaml` with the location of your new image
+- Deploy your application on Paperspace by running [`pspace up`](https://docs-next.paperspace.com/cli/up). Ensure you have the [Paperspace CLI](https://github.com/Paperspace/cli#installation) installed.
 
 ## How to deploy
+
 - Download the [Paperspace CLI](https://github.com/Paperspace/cli#installation)
-- run `pspace init -t https://github.com/gradient-ai/FastAPI-Template-App` to initialize you app. This will initialize the project locally and clone this GitHub repo as your project template.
-- run `pspace up` to deploy your app on Paperspace. This will send the spec in [paperspace.yaml)(paperspace.yaml) to Paperspace to spin up your application.
+- Run [`pspace init -t https://github.com/gradient-ai/FastAPI-Template-App`](https://docs-next.paperspace.com/cli/init) to initialize you app. This will create an app locally, clone this GitHub repo as your app template, and remotely link your app to Paperspace so you can add [secrets](https://docs-next.paperspace.com/secrets) and collaborators.
+- Run [`pspace up`](https://docs-next.paperspace.com/cli/up) to deploy your app on Paperspace. This will send the app config at [paperspace.yaml)(paperspace.yaml) to Paperspace, which will spin up your application.
 
-## Deployment GitHub Action
-Use the [Paperspace Deploy GitHub action](https://github.com/Paperspace/deploy-action) to integrate the build/push process with your CI/CD pipeline.
+## Simplify your deployment workflow with GitHub Actions
 
-## Additional Information
-Find more information about Paperspace apps in our [docs](https://docs.paperspace.com/gradient/deployments).
+Use the [Paperspace Deploy Action](https://github.com/Paperspace/deploy-action) to integrate a build/push process into your CI/CD pipeline.
+
+## Documentation
+
+Learn more about Paperspace apps at our [documentation site](https://docs-next.paperspace.com/apps).
