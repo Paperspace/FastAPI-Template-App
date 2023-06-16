@@ -5,7 +5,7 @@
 This is a template for users looking to deploy their own FastAPI app on Paperspace.
 
 - The [FastAPI](https://fastapi.tiangolo.com/lo/) app code is located in `app/main.py`
-- The Dockerfile is used to create an image which was pushed as a public image to [paperspace/fastapi-template-app:latest](https://hub.docker.com/repository/docker/paperspace/fastapi-template-app/general)
+- The Dockerfile is used to create an image which was pushed as a public image to [paperspace/fastapi-template-app:2023-06-14](https://hub.docker.com/repository/docker/paperspace/fastapi-template-app/general)
 - The above image can be deployed to Paperspace using the [app config](https://docs-next.paperspace.com/deploying/app-config) located at `paperspace.yaml`
 
 ## Project Structure
